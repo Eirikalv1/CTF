@@ -11,7 +11,7 @@ Flag format: S2G{...}
 ## Solution
 The website is a Flask application that lets users order pizza. However, the captcha is impossible to read, and hence, ordering pizza becomes impossible. So to solve this challange we need to bypass both captcha and payment.
 
-The application is using flask-session-captch on version 1.2.0. This version has a captcha validate bypass vulnerability, [CVE-2022-24880](https://github.com/advisories/GHSA-7r87-cj48-wj45).
+The application is using flask-session-captcha version 1.2.0. This version has a captcha validate bypass vulnerability, [CVE-2022-24880](https://github.com/advisories/GHSA-7r87-cj48-wj45).
 
 The function `captcha.validate()` returns `None` if no value was passed. Since the challange checks `captcha.validate() == False`, the user could send a request with an empty form to bypass it.
 
