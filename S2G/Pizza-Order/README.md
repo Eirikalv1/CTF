@@ -15,7 +15,7 @@ The application is using flask-session-captch on version 1.2.0. This version has
 
 The function `captcha.validate()` returns `None` if no value was passed. Since the challange checks `captcha.validate() == False`, the user could send a request with an empty form to bypass it.
 
-Secondly, we want `if session['user_type'] == 'private':` to be false. That means we need to change `session` to something else. The user can set the cardholder-field to `user_type`, which will overwrite the previous value, and spit out the flag.
+Secondly, we want `if session['user_type'] == 'private':` to be false. That means we need to change `session` to something else. The user can set the cardholder-field to `user_type`, which will overwrite the previous value, and the website will spit out the flag.
 ```python
 session[request.form.get('cardholder')] = {'card-number':request.form.get('cardNumber'),'expiration-date':request.form.get('expirationDate'), 'cvv':request.form.get('cvv')}
 ```
